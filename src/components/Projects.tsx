@@ -1,6 +1,6 @@
 const projects = [
   {
-    title: "AIoT Predictive Maintenance",
+    title: "Bot",
     description:
       "Built an end-to-end system analyzing IoT sensor data for equipment failure prediction.",
   },
@@ -26,9 +26,10 @@ export default function Projects() {
             key={idx}
             className="bg-white shadow-lg rounded-xl p-6 hover:-translate-y-2 transition"
           >
-            <h3 className="text-2xl font-semibold mb-3 text-blue-600">
+            <h3 className="text-2xl font-semibold mb-3 text-primary">
               {p.title}
             </h3>
+
             <p className="text-gray-600">{p.description}</p>
           </div>
         ))}
