@@ -8,6 +8,6 @@ export default function UseMounted({
 }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  if (!mounted) return null; // 或者回傳骨架/placeholder
+  if (!mounted) return null;
   return <>{children}</>;
 }

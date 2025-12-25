@@ -7,7 +7,7 @@ export default function About() {
       className="flex flex-col justify-center items-center text-center h-screen bg-white dark:bg-gray-100 transition-colors duration-500"
     >
       <Reveal>
-        <h2 className="text-4xl font-bold mb-6">About Me</h2>
+        <h2 className="text-4xl font-bold text-primary">About Me</h2>
       </Reveal>
       <Reveal delay={0.2}>
         <p className="max-w-2xl mx-auto text-gray-700 leading-relaxed">

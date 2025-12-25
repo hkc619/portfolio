@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="text-gray-900 h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       <Navbar />
-      <section id="hero" className="h-screen snap-start">
+      <section id="hero" className="h-screen snap-start scroll-mt-16">
         <Hero />
       </section>
       <section id="about" className="h-screen snap-start">
