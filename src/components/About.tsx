@@ -10,12 +10,19 @@ export default function About() {
         <h2 className="text-4xl font-bold text-primary">About Me</h2>
       </Reveal>
       <Reveal delay={0.2}>
-        <p className="max-w-2xl mx-auto text-primary leading-relaxed">
-          I’m a Master’s student in Computer Science at North Carolina State University, with a background in Industrial Engineering and Management from National Yang Ming Chiao Tung University.
-          I enjoy building software systems and thinking about how different components fit together. When working on a problem, I tend to break it down systematically—clarifying requirements, understanding data flows, and reasoning about system behavior before jumping into implementation.
-          Through coursework and team projects, I’ve learned the importance of clear communication and collaboration, especially when designing systems that need to be stable, maintainable, and easy to evolve over time.
-          I’m currently exploring infrastructure-related engineering roles, with a growing interest in the foundations that support large-scale and reliable software systems.
-        </p>
+        <div className="mx-auto max-w-3xl px-6">
+         <div className="text-center">
+        <p className="text-lg font-medium text-slate-900 dark:text-slate-100">
+    I’m a Master’s student in Computer Science at North Carolina State University, with a background in Industrial Engineering and Management from National Yang Ming Chiao Tung University.
+  </p>
+
+          <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            <p>I enjoy building software systems and thinking about how different components fit together. When working on a problem, I tend to break it down systematically—clarifying requirements, understanding data flows, and reasoning about system behavior before jumping into implementation.</p>
+            <p>Through coursework and team projects, I’ve learned the importance of clear communication and collaboration, especially when designing systems that need to be stable, maintainable, and easy to evolve over time.</p>
+            <p>I’m currently exploring infrastructure-related engineering roles, with a growing interest in the foundations that support large-scale and reliable software systems.</p>
+          </div>
+          </div>
+          </div>
       </Reveal>
     </section>
   );

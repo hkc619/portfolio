@@ -22,9 +22,7 @@ export default function Home() {
       <section id="projects" className="snap-start scroll-mt-16">
         <Projects />
       </section>
-      <section id="contact" className="snap-start scroll-mt-16">
-        <Contact />
-      </section>
+
             <section id="footer" className="snap-start scroll-mt-16">
         <Footer />
       </section>
