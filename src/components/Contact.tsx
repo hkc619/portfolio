@@ -2,10 +2,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-center items-center text-center  bg-gray-100 transition-colors duration-500 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.15)_0%,transparent_70%)]"
+      className="flex flex-col justify-center items-center text-center bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.22)_0%,transparent_60%)]"
     >
-      <h2 className="text-4xl font-bold text-primary">Contact</h2>
-      <p className="text-gray-600 mb-8">
+      <h2 className="text-4xl font-bold text-white">Contact</h2>
+      <p className="text-white mb-8">
         Interested in collaboration or have a question? Let’s get in touch!
       </p>
       <a
