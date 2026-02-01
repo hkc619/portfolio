@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -18,11 +19,14 @@ export default function Home() {
       <section id="experience" className="h-screen snap-start scroll-mt-16">
         <Experience />
       </section>
-      <section id="projects" className="h-screen snap-start scroll-mt-16">
+      <section id="projects" className="snap-start scroll-mt-16">
         <Projects />
       </section>
-      <section id="contact" className="h-screen snap-start scroll-mt-16">
+      <section id="contact" className="snap-start scroll-mt-16">
         <Contact />
+      </section>
+            <section id="footer" className="snap-start scroll-mt-16">
+        <Footer />
       </section>
     </main>
   );

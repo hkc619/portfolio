@@ -136,7 +136,8 @@ export default function Projects() {
       id="projects"
       className="h-screen py-20 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.22)_0%,transparent_60%)] text-center"
     >
-      <h2 className="text-4xl font-bold text-primary mb-10">Projects</h2>
+      <h2 className="text-4xl font-bold text-primary mb-10">Projects Experience</h2>
+      <h3 className="text-3xl font-bold text-primary mb-10">Projects</h3>
       <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
         {PROJECTS.map((p) => (
           <motion.button
@@ -165,7 +166,7 @@ export default function Projects() {
           </motion.button>
         ))}
       </div>
-      <h2 className="text-4xl font-bold text-primary m-10">Course Projects</h2>
+      <h2 className="text-3xl font-bold text-primary m-10">Course Projects</h2>
       <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
         {C_PROJECTS.map((p) => (
           <motion.button
