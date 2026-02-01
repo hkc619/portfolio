@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import UseMounted from "@/components/UseMounted";
@@ -8,6 +8,9 @@ import UseMounted from "@/components/UseMounted";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   const isDark = (theme === "system" ? resolvedTheme : theme) === "dark";
 
@@ -72,17 +75,17 @@ export default function Navbar() {
           >
             Contact
           </button>
-
-          <UseMounted>
-            <button
-              type="button"
-              onClick={() => setTheme(isDark ? "light" : "dark")}
-              className="ml-2 px-3 py-1 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition"
-              aria-label="Toggle theme"
-            >
-              {isDark ? "☀️" : "🌙"}
-            </button>
-          </UseMounted>
+          {/* 
+          <button
+            type="button"
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            className="ml-2 px-3 py-1 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition"
+            aria-label="Toggle theme"
+            disabled={!mounted}
+          >
+            {!mounted ? "" : isDark ? "☀️" : "🌙"}
+          </button>
+         */}
         </div>
 
         {/* Mobile menu button */}
@@ -92,9 +95,7 @@ export default function Navbar() {
           className="md:hidden px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200"
           aria-label="Open menu"
           aria-expanded={isOpen}
-        >
-          ☰
-        </button>
+        ></button>
       </div>
 
       {/* Mobile dropdown */}
@@ -129,16 +130,17 @@ export default function Navbar() {
             >
               Contact
             </button>
-
-            <UseMounted>
-              <button
-                type="button"
-                onClick={() => setTheme(isDark ? "light" : "dark")}
-                className="mt-2 mx-auto w-fit px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition"
-              >
-                {isDark ? "Light mode ☀️" : "Dark mode 🌙"}
-              </button>
-            </UseMounted>
+            {/* 
+            <button
+              type="button"
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="ml-2 px-3 py-1 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition"
+              aria-label="Toggle theme"
+              disabled={!mounted}
+            >
+              {!mounted ? "" : isDark ? "☀️" : "🌙"}
+            </button>
+            */}
           </div>
         </div>
       )}

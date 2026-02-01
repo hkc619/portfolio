@@ -6,25 +6,24 @@ import ProjectModal, { Project } from "@/components/ProjectModal";
 
 const PROJECTS: Project[] = [
   {
-    id: "aiot",
-    title: "AIoT Predictive Maintenance",
-    subtitle: "Smart manufacturing / failure prediction",
+    id: "ocr",
+    title: "OCR ID Masking Tool",
+    subtitle: "Privacy automation",
     description:
-      "Analyzed IoT sensor streams to predict equipment failures and reduce downtime.",
+      "Automated masking of sensitive fields on ID documents using OCR + CV.",
     details: {
       overview:
-        "End-to-end pipeline from data ingestion → feature engineering → model training → evaluation. Focused on deployable workflows and low-latency insights for factory environments.",
-      tech: ["Python", "Pandas", "Scikit-learn", "Docker", "Cloud"],
+        "Detects text regions and masks sensitive fields for privacy compliance. Emphasized accuracy, speed, and reliable preprocessing for noisy scans.",
+      tech: ["Python", "OpenCV", "Tesseract", "NumPy"],
       highlights: [
-        "Designed data cleaning + feature pipeline for sensor noise and missing values",
-        "Evaluated multiple models with robust metrics and ablation experiments",
-        "Packaged components for reproducibility (configs, seeds, artifacts)",
-      ],
-      links: [
-        { label: "GitHub", href: "https://github.com/yourname/yourrepo" },
+        "Built preprocessing to improve OCR accuracy on low-quality images",
+        "Implemented masking rules for common sensitive fields",
+        "Packaged as a script/tool for batch processing",
       ],
     },
   },
+];
+const C_PROJECTS: Project[] = [
   {
     id: "calendar",
     title: "Next.js Calendar App",
@@ -39,23 +38,6 @@ const PROJECTS: Project[] = [
         "Implemented modular UI components + state management patterns",
         "Built secure server actions / API routes for data operations",
         "Optimized UX with loading states and predictable error handling",
-      ],
-    },
-  },
-  {
-    id: "ocr",
-    title: "OCR ID Masking Tool",
-    subtitle: "Privacy automation",
-    description:
-      "Automated masking of sensitive fields on ID documents using OCR + CV.",
-    details: {
-      overview:
-        "Detects text regions and masks sensitive fields for privacy compliance. Emphasized accuracy, speed, and reliable preprocessing for noisy scans.",
-      tech: ["Python", "OpenCV", "Tesseract", "NumPy"],
-      highlights: [
-        "Built preprocessing to improve OCR accuracy on low-quality images",
-        "Implemented masking rules for common sensitive fields",
-        "Packaged as a script/tool for batch processing",
       ],
     },
   },
@@ -90,6 +72,35 @@ export default function Projects() {
 
       <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
         {PROJECTS.map((p) => (
+          <motion.button
+            key={p.id}
+            type="button"
+            onClick={() => {
+              setSelected(p);
+              setOpen(true);
+            }}
+            whileHover={{ y: -6 }}
+            whileTap={{ scale: 0.98 }}
+            className="text-left bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm hover:shadow-lg transition focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <h3 className="text-xl font-semibold text-primary">{p.title}</h3>
+            {p.subtitle && (
+              <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                {p.subtitle}
+              </p>
+            )}
+            <p className="mt-4 text-gray-700 dark:text-gray-300">
+              {p.description}
+            </p>
+            <p className="mt-4 text-sm text-primary underline underline-offset-4">
+              View details →
+            </p>
+          </motion.button>
+        ))}
+      </div>
+      <h2 className="text-4xl font-bold text-primary">Course Projects</h2>
+      <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
+        {C_PROJECTS.map((p) => (
           <motion.button
             key={p.id}
             type="button"

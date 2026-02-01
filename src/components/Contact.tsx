@@ -2,7 +2,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-center items-center text-center h-screen bg-white dark:bg-gray-100 transition-colors duration-500"
+      className="flex flex-col justify-center items-center text-center  bg-gray-100 transition-colors duration-500 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.15)_0%,transparent_70%)]"
     >
       <h2 className="text-4xl font-bold text-primary">Contact</h2>
       <p className="text-gray-600 mb-8">
