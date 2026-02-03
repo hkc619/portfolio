@@ -14,15 +14,88 @@ type ExperienceItem = {
   summary: string; // 1-liner
   bullets: string[];
   stack: string[];
+  coursework?: string[]; 
   links?: { label: string; href: string }[];
 };
 
-const experiences: ExperienceItem[] = [
+function cn(...classes: Array<string | false | undefined | null>) {
+  return classes.filter(Boolean).join(" ");
+}
+
+function formatRange(start: string, end: string) {
+  const fmt = (s: string) => {
+    if (s === "Present") return "Present";
+    const [y, m] = s.split("-");
+    const month = Number(m);
+    const map = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return `${map[month - 1]} ${y}`;
+  };
+  return `${fmt(start)} – ${fmt(end)}`;
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0 },
+};
+
+const educationItems: ExperienceItem[] = [
+  {
+    id: "ncsu-mcs",
+    start: "2025-08",
+    end: "2027-05",
+    yearLabel: "2027",
+    title: "Master of Computer Science",
+    org: "North Carolina State University",
+    location: "Raleigh, NC",
+    summary:
+      "Focused on systems, distributed computing, and software engineering toward infrastructure roles.",
+    bullets: [
+      "Built projects around backend services, data pipelines, and scalable systems.",
+      "Collaborated in team settings with clear design communication and maintainability in mind.",
+    ],
+    stack: ["Software Engineering", "Problem solving", "Teamwork"],
+    coursework: [
+      "Design & Analysis of Algorithms (CSC 505)",
+      "Software Engineering (CSC 510)",
+      "Automated Learning & Data Mining (CSC 522)",
+      "Computer Networks (CSC 570)",
+      "Neural Networks (CSC 534)",
+      "Architecture Of Parallel Computers (CSC 506)",
+    ],
+    // links: [{ label: "Coursework", href: "/coursework" }],
+  },
+  {
+    id: "nycu-ie",
+    start: "2020-09",
+    end: "2024-06",
+    yearLabel: "2024",
+    title: "B.S. in Industrial Engineering & Management",
+    org: "National Yang Ming Chiao Tung University",
+    location: "Taiwan",
+    summary:
+      "Built a strong foundation in structured problem solving, data thinking, and system-level analysis.",
+    bullets: [
+      "Developed analytical thinking through operations research and data-driven decision making.",
+      "Strengthened collaboration and communication through team projects and presentations.",
+    ],
+    stack: ["Data Analysis", "Optimization", "Systems Thinking", "Teamwork", "Problem Solving"],
+    coursework: [
+      "OOP",
+      "Data Structure",
+      "Algorithms",
+      "Operating Systems",
+      "Cloud Computing",
+      "Deep Learning"
+    ],
+  },
+];
+
+const internshipItems: ExperienceItem[] = [
     {
     id: "freedom-systems",
     start: "2024-07",
     end: "2025-02",
-    yearLabel: "2024",
+    yearLabel: "2025",
     title: "Low-Code Engineer Intern",
     org: "Freedom Systems",
     location: "Taipei, Taiwan",
@@ -31,7 +104,7 @@ const experiences: ExperienceItem[] = [
       "Built internal approval workflows and notifications using Power Apps / Power Automate / SharePoint.",
       "Deployed and operated cloud services (Azure VM) while improving reliability of business processes.",
     ],
-    stack: ["Power Apps", "Power Automate", "SharePoint", "Azure VM"],
+    stack: ["Power Apps", "JavaScript", "Node.js", "MySQL", "Azure VM"],
   },
   {
     id: "supergeo-intern",
@@ -52,39 +125,26 @@ const experiences: ExperienceItem[] = [
 
 ];
 
-// --- helpers ---
-function formatRange(start: string, end: string) {
-  const fmt = (s: string) => {
-    if (s === "Present") return "Present";
-    const [y, m] = s.split("-");
-    const month = Number(m);
-    const map = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    return `${map[month - 1]} ${y}`;
-  };
-  return `${fmt(start)} – ${fmt(end)}`;
-}
-
-function cn(...classes: Array<string | false | undefined | null>) {
-  return classes.filter(Boolean).join(" ");
-}
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0 },
-};
-
-export default function Experience() {
+function TimelineSection({
+  id,
+  title,
+  description,
+  items,
+}: {
+  id: string;
+  title: string;
+  description?: string;
+  items: ExperienceItem[];
+}) {
   const [openAll, setOpenAll] = React.useState(false);
-  const [openId, setOpenId] = React.useState<string | null>(experiences[1]?.id ?? null);
+  const [openId, setOpenId] = React.useState<string | null>(items[0]?.id ?? null);
 
-  // if openAll toggled on, keep openId null (not needed)
   React.useEffect(() => {
     if (openAll) setOpenId(null);
   }, [openAll]);
 
   return (
-    <section id="experience" className="scroll-mt-24">
-      <div className="mx-auto max-w-4xl px-4">
+    <section id={id} className="scroll-mt-24">
       <motion.div
         initial="hidden"
         whileInView="show"
@@ -95,29 +155,28 @@ export default function Experience() {
       >
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-            Experience
+            {title}
           </h2>
-          <p className="mt-2 max-w-2xl text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            Timeline-first view for fast scanning, with expandable details for engineering depth.
-          </p>
+          {description ? (
+            <p className="mt-2 max-w-2xl text-sm sm:text-base text-slate-600 dark:text-slate-300">
+              {description}
+            </p>
+          ) : null}
         </div>
 
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setOpenAll((v) => !v)}
-            className={cn(
-              "rounded-xl px-3 py-2 text-sm font-medium",
-              "border border-slate-200 dark:border-slate-800",
-              "bg-white/70 dark:bg-slate-900/40 backdrop-blur",
-              "text-slate-700 dark:text-slate-200",
-              "hover:bg-white hover:dark:bg-slate-900",
-              "transition"
-            )}
-          >
-            {openAll ? "Collapse all" : "Expand all"}
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setOpenAll((v) => !v)}
+          className={cn(
+            "rounded-xl px-3 py-2 text-sm font-medium",
+            "border border-slate-200 dark:border-slate-800",
+            "bg-white/70 dark:bg-slate-900/40 backdrop-blur",
+            "text-slate-700 dark:text-slate-200",
+            "hover:bg-white hover:dark:bg-slate-900 transition"
+          )}
+        >
+          {openAll ? "Collapse all" : "Expand all"}
+        </button>
       </motion.div>
 
       <div className="relative">
@@ -125,8 +184,9 @@ export default function Experience() {
         <div className="absolute left-4 top-0 h-full w-px bg-slate-200 dark:bg-slate-800" />
 
         <ul className="space-y-6">
-          {experiences.map((item, idx) => {
+          {items.map((item, idx) => {
             const isOpen = openAll || openId === item.id;
+
             return (
               <motion.li
                 key={item.id}
@@ -147,14 +207,12 @@ export default function Experience() {
                   )}
                 />
 
-                {/* header row */}
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                       {item.yearLabel}
                     </p>
-
-                    <h3 className="mt-1 text-lg font-semibold text-slate-900 dark:text-slate-100">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
                       {item.title}{" "}
                       <span className="text-slate-500 dark:text-slate-400 font-medium">
                         · {item.org}
@@ -170,11 +228,10 @@ export default function Experience() {
                       {item.summary}
                     </p>
 
-                    {/* stack badges */}
                     <div className="mt-3 flex flex-wrap gap-2">
                       {item.stack.map((s) => (
                         <span
-                          key={s}
+                          key={`${item.id}-${s}`}
                           className={cn(
                             "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium",
                             "bg-slate-100 text-slate-700",
@@ -188,12 +245,11 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  {/* toggle button */}
-                  <div className="sm:pt-6">
+                  <div className="sm:pt-1">
                     <button
                       type="button"
                       onClick={() => {
-                        if (openAll) return; // openAll manages everything
+                        if (openAll) return;
                         setOpenId((cur) => (cur === item.id ? null : item.id));
                       }}
                       className={cn(
@@ -211,7 +267,7 @@ export default function Experience() {
                   </div>
                 </div>
 
-                {/* expandable card */}
+                {/* expandable details card */}
                 <motion.div
                   id={`${item.id}-details`}
                   initial={false}
@@ -253,7 +309,7 @@ export default function Experience() {
                         <div className="mt-2 flex flex-wrap gap-2">
                           {item.stack.map((s) => (
                             <span
-                              key={`${item.id}-${s}`}
+                              key={`stack-${item.id}-${s}`}
                               className={cn(
                                 "inline-flex items-center rounded-lg px-2 py-1 text-xs font-medium",
                                 "bg-slate-50 text-slate-700",
@@ -265,30 +321,19 @@ export default function Experience() {
                             </span>
                           ))}
                         </div>
-
-                        {item.links?.length ? (
-                          <>
-                            <p className="mt-4 text-sm font-semibold text-slate-900 dark:text-slate-100">
-                              Links
-                            </p>
-                            <div className="mt-2 flex flex-col gap-2">
-                              {item.links.map((l) => (
-                                <a
-                                  key={l.href}
-                                  href={l.href}
-                                  className={cn(
-                                    "text-sm font-medium",
-                                    "text-violet-700 dark:text-violet-400",
-                                    "hover:underline underline-offset-4"
-                                  )}
-                                >
-                                  {l.label}
-                                </a>
-                              ))}
-                            </div>
-                          </>
-                        ) : null}
                       </div>
+                            {item.coursework && (
+                            <div className="md:col-span-12">
+                              <p className="mt-4 text-sm font-semibold text-slate-900 dark:text-slate-100">
+                                Coursework
+                              </p>
+                              <ul className="mt-2 grid gap-x-6 gap-y-1 sm:grid-cols-2 text-sm text-slate-600 dark:text-slate-300">
+                                {item.coursework.map((c) => (
+                                  <li key={c}>• {c}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                     </div>
                   </div>
                 </motion.div>
@@ -297,9 +342,28 @@ export default function Experience() {
           })}
         </ul>
       </div>
-      </div>
     </section>
-    
   );
 }
 
+export default function Experience() {
+  return (
+    <section className="mx-auto max-w-5xl px-6 py-16">
+      <TimelineSection
+        id="education"
+        title="Education"
+        description="Academic background and coursework that shaped my systems and software engineering foundation."
+        items={educationItems}
+      />
+
+      <div className="h-14" />
+
+      <TimelineSection
+        id="internships"
+        title="Internships"
+        description="Hands-on experience building and improving real systems—data workflows, automation, and reliability."
+        items={internshipItems}
+      />
+    </section>
+  );
+}

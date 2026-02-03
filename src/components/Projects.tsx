@@ -8,7 +8,7 @@ const PROJECTS: Project[] = [
    {
     id: "chatbot",
     title: "AI chatbot",
-    subtitle: "Privacy automation",
+    subtitle: "Service 24/7",
     description:
       "Automated masking of sensitive fields on ID documents using OCR + CV.",
     details: {
@@ -20,6 +20,8 @@ const PROJECTS: Project[] = [
         "Implemented masking rules for common sensitive fields",
         "Packaged as a script/tool for batch processing",
       ],
+      start: "2024-11",
+      end: "2025-01"
     },
   },
   {
@@ -59,7 +61,7 @@ const PROJECTS: Project[] = [
 ];
 const C_PROJECTS: Project[] = [
     {
-    id: "Hungrywolf",
+    id: "netflixrecommander",
     title: "Netflix Recommander System",
     subtitle: "Function update",
     description:
@@ -76,7 +78,7 @@ const C_PROJECTS: Project[] = [
     },
   },
   {
-    id: "Hungrywolf",
+    id: "hungrywolf",
     title: "Hungry wolf ",
     subtitle: "Function update",
     description:
@@ -93,7 +95,7 @@ const C_PROJECTS: Project[] = [
     },
   },
   {
-    id: "calendar",
+    id: "epicourier",
     title: "EpiCourier Calendar App",
     subtitle: "Full-stack scheduling + integrations",
     description:

@@ -8,12 +8,25 @@ export type Project = {
   subtitle?: string;
   description: string; // 短描述（卡片用）
   details: {
+    start: string,
+    end: string,
     overview: string;
     tech: string[];
     highlights: string[];
     links?: { label: string; href: string }[];
   };
 };
+
+function formatRange(start: string, end: string) {
+  const fmt = (s: string) => {
+    if (s === "Present") return "Present";
+    const [y, m] = s.split("-");
+    const month = Number(m);
+    const map = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return `${map[month - 1]} ${y}`;
+  };
+  return `${fmt(start)} – ${fmt(end)}`;
+}
 
 export default function ProjectModal({
   project,
@@ -59,6 +72,11 @@ export default function ProjectModal({
                       {project.subtitle}
                     </p>
                   )}
+                    {project.details.start && project.details.end && (
+                   <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                    {formatRange(project.details.start, project.details.end)}
+                   </p>
+                  )}
                 </div>
 
                 <button
@@ -79,7 +97,7 @@ export default function ProjectModal({
                     {project.details.overview}
                   </p>
                 </div>
-
+                
                 <div>
                   <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">
                     Tech Stack

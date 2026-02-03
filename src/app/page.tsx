@@ -16,7 +16,7 @@ export default function Home() {
       <section id="about" className="h-screen snap-start scroll-mt-16">
         <About />
       </section>
-      <section id="experience" className="h-screen snap-start scroll-mt-16">
+      <section id="experience" className="snap-start scroll-mt-16">
         <Experience />
       </section>
       <section id="projects" className="snap-start scroll-mt-16">
