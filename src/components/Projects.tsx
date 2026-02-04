@@ -50,6 +50,8 @@ const PROJECTS: Project[] = [
     description:
       "Automated masking of sensitive fields on ID documents using OCR + CV.",
     details: {
+      start:"",
+      end:"",
       overview:
         "Detects text regions and masks sensitive fields for privacy compliance. Emphasized accuracy, speed, and reliable preprocessing for noisy scans.",
       tech: ["Python", "OpenCV", "Tesseract", "NumPy"],
@@ -69,6 +71,8 @@ const C_PROJECTS: Project[] = [
     description:
       "Add real time tracking system for delievery",
     details: {
+      start:"",
+      end:"",
       overview:
         "A responsive calendar UI with event management and extensible integrations. Built with a clean component architecture and a focus on maintainability.",
       tech: ["Node.js", "JavaScript", "React", "Tailwind", "Firestore"],

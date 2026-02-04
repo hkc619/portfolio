@@ -1,4 +1,5 @@
 import Reveal from "@/components/motions/Reveal";
+import IntroTypingOverlay from "@/components/intro/IntroTypingOverlay";
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -10,6 +11,13 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="text-gray-900 dark:text-gray-100 min-h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth bg-gray-50 dark:bg-gray-900">
+       <IntroTypingOverlay
+        lines={[
+          "kyle C.:~$ whoami",
+          "MCS @ NCSU · Systems / Infrastructure",
+          "kylechchiu@gmail.com:~$ cd project && ls",
+        ]}
+      />
       <Navbar />
       <section id="hero" className="h-screen snap-start scroll-mt-16">
         <Hero />
