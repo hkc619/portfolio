@@ -348,7 +348,7 @@ function TimelineSection({
 
 export default function Experience() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-16 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.22)_0%,transparent_60%)]">
       <TimelineSection
         id="education"
         title="Education"

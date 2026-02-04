@@ -39,6 +39,8 @@ const PROJECTS: Project[] = [
         "Implemented masking rules for common sensitive fields",
         "Packaged as a script/tool for batch processing",
       ],
+      start: "2024-07",
+      end: "2024-10"
     },
   },
   {
@@ -92,6 +94,8 @@ const C_PROJECTS: Project[] = [
         "Built secure server actions / API routes for data operations",
         "Optimized UX with loading states and predictable error handling",
       ],
+      start: "2025-11",
+      end: "2025-12"
     },
   },
   {
@@ -109,6 +113,8 @@ const C_PROJECTS: Project[] = [
         "Built secure server actions / API routes for data operations",
         "Optimized UX with loading states and predictable error handling",
       ],
+      start: "2025-09",
+      end: "2025-10"
     },
   },
 ];

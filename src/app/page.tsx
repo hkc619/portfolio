@@ -1,9 +1,10 @@
+import Reveal from "@/components/motions/Reveal";
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,13 +15,19 @@ export default function Home() {
         <Hero />
       </section>
       <section id="about" className="h-screen snap-start scroll-mt-16">
+        <Reveal>
         <About />
+        </Reveal>
       </section>
       <section id="experience" className="snap-start scroll-mt-16">
+         <Reveal>
         <Experience />
+        </Reveal>
       </section>
       <section id="projects" className="snap-start scroll-mt-16">
+        <Reveal>
         <Projects />
+        </Reveal>
       </section>
 
             <section id="footer" className="snap-start scroll-mt-16">
