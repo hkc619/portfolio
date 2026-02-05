@@ -68,13 +68,7 @@ export default function Navbar() {
           >
             Projects
           </button>
-          <button
-            type="button"
-            onClick={() => scrollToSection("contact")}
-            className={navItemClass}
-          >
-            Contact
-          </button>
+
           {/* 
           <button
             type="button"

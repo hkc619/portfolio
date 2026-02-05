@@ -8,12 +8,25 @@ export type Project = {
   subtitle?: string;
   description: string; // 短描述（卡片用）
   details: {
+    start: string,
+    end: string,
     overview: string;
     tech: string[];
     highlights: string[];
     links?: { label: string; href: string }[];
   };
 };
+
+function formatRange(start: string, end: string) {
+  const fmt = (s: string) => {
+    if (s === "Present") return "Present";
+    const [y, m] = s.split("-");
+    const month = Number(m);
+    const map = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return `${map[month - 1]} ${y}`;
+  };
+  return `${fmt(start)} – ${fmt(end)}`;
+}
 
 export default function ProjectModal({
   project,
@@ -51,13 +64,18 @@ export default function ProjectModal({
             <div className="p-6">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="text-2xl font-semibold text-primary">
+                  <h3 className="text-2xl font-semibold text-primary text-left">
                     {project.title}
                   </h3>
                   {project.subtitle && (
-                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-300 text-left">
                       {project.subtitle}
                     </p>
+                  )}
+                    {project.details.start && project.details.end && (
+                   <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                    {formatRange(project.details.start, project.details.end)}
+                   </p>
                   )}
                 </div>
 
@@ -72,19 +90,19 @@ export default function ProjectModal({
 
               <div className="mt-5 space-y-5">
                 <div>
-                  <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">
+                  <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 text-left">
                     Overview
                   </p>
-                  <p className="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed text-left ">
                     {project.details.overview}
                   </p>
                 </div>
-
+                
                 <div>
-                  <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">
+                  <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 text-left">
                     Tech Stack
                   </p>
-                  <div className="mt-2 flex flex-wrap gap-2">
+                  <div className="justify-center mt-2 flex flex-wrap gap-2">
                     {project.details.tech.map((t) => (
                       <span
                         key={t}
@@ -97,10 +115,10 @@ export default function ProjectModal({
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">
+                  <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 text-left">
                     Highlights
                   </p>
-                  <ul className="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                  <ul className="mt-2 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1 text-left">
                     {project.details.highlights.map((h) => (
                       <li key={h}>{h}</li>
                     ))}
