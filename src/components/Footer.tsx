@@ -11,8 +11,8 @@ export default function Footer() {
           {/* Signature block */}
           <div className="text-center sm:text-left">
             <Image
-              src="https://github.com/hkc619/portfolio/blob/main/public/img/KYLECHCHIU-signature.svg"
-              alt="Kyle Chiu signature"
+              src="https://raw.githubusercontent.com/hkc619/portfolio/refs/heads/main/public/img/KYLECHCHIU-signature.svg"
+              alt="Kyle Chiu"
               width={320}
               height={56}
               className="h-14 w-auto max-w-[320px] opacity-90 dark:opacity-80"
@@ -45,7 +45,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/kylechchiu"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:text-slate-900
