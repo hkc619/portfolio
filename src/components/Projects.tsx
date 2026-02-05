@@ -5,44 +5,44 @@ import { motion } from "framer-motion";
 import ProjectModal, { Project } from "@/components/ProjectModal";
 
 const PROJECTS: Project[] = [
-   {
-    id: "chatbot",
-    title: "AI chatbot",
-    subtitle: "Service 24/7",
-    description:
-      "Automated masking of sensitive fields on ID documents using OCR + CV.",
-    details: {
-      overview:
-        "Detects text regions and masks sensitive fields for privacy compliance. Emphasized accuracy, speed, and reliable preprocessing for noisy scans.",
-      tech: ["Python", "OpenCV", "Tesseract", "NumPy"],
-      highlights: [
-        "Built preprocessing to improve OCR accuracy on low-quality images",
-        "Implemented masking rules for common sensitive fields",
-        "Packaged as a script/tool for batch processing",
-      ],
-      start: "2024-11",
-      end: "2025-01"
-    },
+{
+  id: "chatbot",
+  title: "AI Chatbot",
+  subtitle: "Service 24/7",
+  description:
+    "An AI-powered chatbot that provides instant, automated responses using NLP and LLM-based reasoning.",
+  details: {
+    overview:
+      "Designed and built an AI chatbot capable of handling user queries 24/7 with consistent and context-aware responses. Focused on reliability, response quality, and smooth user interaction for real-world usage scenarios.",
+    tech: ["Python", "LLM API", "FastAPI", "REST API"],
+    highlights: [
+      "Integrated large language models to generate natural and context-aware responses",
+      "Designed prompt and response handling logic to improve answer consistency",
+      "Implemented a lightweight backend service to support real-time chat interactions",
+    ],
+    start: "2024-11",
+    end: "2025-01"
   },
+},
   {
-    id: "pettycash",
-    title: "Petty cash",
-    subtitle: "Privacy automation",
-    description:
-      "Automated masking of sensitive fields on ID documents using OCR + CV.",
-    details: {
-      overview:
-        "Detects text regions and masks sensitive fields for privacy compliance. Emphasized accuracy, speed, and reliable preprocessing for noisy scans.",
-      tech: ["Python", "OpenCV", "Tesseract", "NumPy"],
-      highlights: [
-        "Built preprocessing to improve OCR accuracy on low-quality images",
-        "Implemented masking rules for common sensitive fields",
-        "Packaged as a script/tool for batch processing",
-      ],
-      start: "2024-07",
-      end: "2024-10"
-    },
+  id: "pettycash",
+  title: "Petty Cash",
+  subtitle: "Internal Workflow Automation",
+  description:
+    "An internal petty cash management system built with Microsoft Power Platform to automate expense submission and approval workflows.",
+  details: {
+    overview:
+      "Designed and implemented a petty cash management application using Power Apps, Power Automate, and SharePoint. The system streamlines expense submission, approval, and record management, reducing manual effort and improving data consistency in internal workflows.",
+    tech: ["Power Apps", "Power Automate", "SharePoint"],
+    highlights: [
+      "Built a Power Apps interface for submitting and tracking petty cash requests",
+      "Automated approval workflows and notifications using Power Automate",
+      "Designed SharePoint lists as the backend data store for expense records and status tracking",
+    ],
+    start: "2024-07",
+    end: "2024-10"
   },
+},
   {
     id: "ocr",
     title: "OCR ID Masking Tool",
@@ -65,43 +65,49 @@ const PROJECTS: Project[] = [
 ];
 const C_PROJECTS: Project[] = [
     {
-    id: "netflixrecommander",
-    title: "Netflix Recommander System",
-    subtitle: "Function update",
-    description:
-      "Add real time tracking system for delievery",
-    details: {
-      start:"",
-      end:"",
-      overview:
-        "A responsive calendar UI with event management and extensible integrations. Built with a clean component architecture and a focus on maintainability.",
-      tech: ["Node.js", "JavaScript", "React", "Tailwind", "Firestore"],
-      highlights: [
-        "Implemented modular UI components + state management patterns",
-        "Built secure server actions / API routes for data operations",
-        "Optimized UX with loading states and predictable error handling",
-      ],
-    },
+  id: "netflixrecommander",
+  title: "Netflix Movie Recommender System",
+  subtitle: "Collaborative Filtering & Evaluation",
+  description:
+    "A movie recommendation system built on the Netflix dataset using collaborative filtering techniques and quantitative evaluation.",
+  details: {
+    overview:
+      "Developed a movie recommender system using the Netflix dataset to predict user ratings and generate personalized recommendations. Explored multiple collaborative filtering approaches and focused on model comparison, evaluation, and error analysis.",
+    tech: ["Python", "NumPy", "Pandas", "Scikit-learn"],
+    highlights: [
+      "Implemented user-based and item-based collaborative filtering models",
+      "Applied matrix factorization techniques to capture latent user–item preferences",
+      "Evaluated model performance using RMSE and conducted comparative analysis",
+    ],
+    start: "2024-09",
+    end: "2024-12"
   },
+},
   {
-    id: "hungrywolf",
-    title: "Hungry wolf ",
-    subtitle: "Function update",
-    description:
-      "Add real time tracking system for delievery",
-    details: {
-      overview:
-        "A responsive calendar UI with event management and extensible integrations. Built with a clean component architecture and a focus on maintainability.",
-      tech: ["Node.js", "JavaScript", "React", "Tailwind", "Firestore"],
-      highlights: [
-        "Implemented modular UI components + state management patterns",
-        "Built secure server actions / API routes for data operations",
-        "Optimized UX with loading states and predictable error handling",
-      ],
-      start: "2025-11",
-      end: "2025-12"
-    },
+  id: "hungrywolf",
+  title: "Hungry Wolf",
+  subtitle: "Real-Time Delivery Tracking",
+  description:
+    "A delivery tracking system with real-time location updates using Google Maps API and cloud-based data synchronization.",
+  details: {
+    overview:
+      "Built a food delivery tracking system that displays real-time courier locations on an interactive map. Focused on low-latency updates, reliable data synchronization, and a smooth user experience for tracking active deliveries.",
+    tech: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Google Maps API",
+      "Firestore"
+    ],
+    highlights: [
+      "Integrated Google Maps API to visualize real-time courier locations",
+      "Implemented live location updates using Firestore real-time listeners",
+      "Designed backend APIs to handle location updates and delivery state transitions",
+    ],
+    start: "2025-11",
+    end: "2025-12"
   },
+},
   {
     id: "epicourier",
     title: "EpiCourier Calendar App",
